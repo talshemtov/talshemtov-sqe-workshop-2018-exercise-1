@@ -18,7 +18,7 @@ describe('The javascript parser', () => {
     });
 });
 
-describe('The table creator', () => {
+describe('The table information creator', () => {
     it('calls varDeclaration when recognizing a variable declaration', () => {
         clearTable();
         let parsedCode = parseCode('let a = 1;');
@@ -35,9 +35,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('calls varDeclaration when recognizing a variable declaration with no init', () => {
         clearTable();
         let parsedCode = parseCode('let a;');
@@ -46,9 +44,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('function with var declarations', () => {
         clearTable();
         let parsedCode = parseCode('function foo(a){}');
@@ -57,9 +53,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[2], expected);
     });
-});
 
-describe('The table creator', () => {
     it('calls whileStatement when recognizing a while loop', () => {
         clearTable();
         let parsedCode = parseCode('while(a > b){}');
@@ -68,9 +62,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('calls whileStatement when recognizing a while loop with single line', () => {
         clearTable();
         let parsedCode = parseCode('while(a > b) a=5;');
@@ -79,9 +71,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('calls whileStatement when recognizing a while loop', () => {
         clearTable();
         let parsedCode = parseCode('while(a > b){}');
@@ -90,9 +80,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('calls whileStatement when recognizing a while loop with body', () => {
         clearTable();
         let parsedCode = parseCode('while(a > b){a=a+1;}');
@@ -101,9 +89,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies assignment and right binary expressions', () => {
         clearTable();
         let parsedCode = parseCode('a = b + c;');
@@ -112,9 +98,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies assignment and left binary expressions', () => {
         clearTable();
         let parsedCode = parseCode('if(a + b > c){}');
@@ -123,9 +107,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies binary expression with left literal', () => {
         clearTable();
         let parsedCode = parseCode('let a = 5 + b;');
@@ -134,9 +116,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies binary expression with left identifier', () => {
         clearTable();
         let parsedCode = parseCode('let a = b;');
@@ -145,9 +125,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies member expressions with literal', () => {
         clearTable();
         let parsedCode = parseCode('let a = arr[5];');
@@ -156,10 +134,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-
-describe('The table creator', () => {
     it('identifies member expressions with other exp type', () => {
         clearTable();
         let parsedCode = parseCode('let a = arr[-x];');
@@ -168,9 +143,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies member expressions with identifier', () => {
         clearTable();
         let parsedCode = parseCode('a = arr[b];');
@@ -179,9 +152,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies unary identifier expressions', () => {
         clearTable();
         let parsedCode = parseCode('a = -b;');
@@ -190,8 +161,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
-describe('The table creator', () => {
+
     it('identifies unary binary expressions', () => {
         clearTable();
         let parsedCode = parseCode('a = -(x+5);');
@@ -200,8 +170,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
-describe('The table creator', () => {
+
     it('identifies unary literal expressions', () => {
         clearTable();
         let parsedCode = parseCode('a = -5;');
@@ -210,9 +179,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies right identifier expressions', () => {
         clearTable();
         let parsedCode = parseCode('a = b;');
@@ -221,9 +188,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies right literal expressions', () => {
         clearTable();
         let parsedCode = parseCode('a = 1;');
@@ -232,9 +197,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies return statement with identifier', () => {
         clearTable();
         let parsedCode = parseCode('function f(){ return a;}');
@@ -243,9 +206,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[2], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies return statement with expression', () => {
         clearTable();
         let parsedCode = parseCode('function f(){ return -a;}');
@@ -254,8 +215,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[2], expected);
     });
-});
-describe('The table creator', () => {
+
     it('identifies return statement with literal', () => {
         clearTable();
         let parsedCode = parseCode('function f(){ return 1;}');
@@ -264,9 +224,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[2], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies return statement with binary exp', () => {
         clearTable();
         let parsedCode = parseCode('function f(){ return a+1;}');
@@ -275,9 +233,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[2], expected);
     });
-});
 
-describe('The table creator', () => {
     it('can clear table and reset line counter', () => {
         clearTable();
         let expected = ['Line', 'Type', 'Name', 'Condition', 'Value'];
@@ -287,9 +243,7 @@ describe('The table creator', () => {
         assert.deepEqual(actual[0], expected);
         assert.deepEqual(lineActual, lineExpected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies if statements with no body', () => {
         clearTable();
         let parsedCode = parseCode('if(a>0){}');
@@ -298,9 +252,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies if statements with body', () => {
         clearTable();
         let parsedCode = parseCode('if(a>0){a=a+1;}');
@@ -309,9 +261,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies if statements with single line body', () => {
         clearTable();
         let parsedCode = parseCode('if(a>0)a=a+1;');
@@ -320,9 +270,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('identifies if else statements with single line body', () => {
         clearTable();
         let parsedCode = parseCode('if(a>2)a=a+1; else if(a==1) a=0;');
@@ -331,8 +279,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[3], expected);
     });
-});
-describe('The table creator', () => {
+
     it('Test parseCodeForTable', () => {
         clearTable();
         let parsedCode = parseCode('let a = 1;');
@@ -341,9 +288,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('Can identify while with logical exp', () => {
         clearTable();
         let parsedCode = parseCode('while(a>b && a>0){}');
@@ -352,9 +297,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('Can identify for with literal init assignment', () => {
         clearTable();
         let parsedCode = parseCode('for(i=0; i<5; i=i+1){}');
@@ -363,9 +306,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('Can identify for with expression init var declaration with body', () => {
         clearTable();
         let parsedCode = parseCode('for(var i=j+1; i<5; i=i+1){a=8;}');
@@ -374,9 +315,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('Can identify for with literal init var declaration with body', () => {
         clearTable();
         let parsedCode = parseCode('for(var i=0; i<5; i=i+1){}');
@@ -385,9 +324,7 @@ describe('The table creator', () => {
         let actual = parsedForTable;
         assert.deepEqual(actual[1], expected);
     });
-});
 
-describe('The table creator', () => {
     it('Can identify for with identifier init var declaration with body', () => {
         clearTable();
         let parsedCode = parseCode('for(var i=j; i<5; i=i+1){}');
